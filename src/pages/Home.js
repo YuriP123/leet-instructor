@@ -1,21 +1,21 @@
 import React from "react";
-import {Box} from "@chakra-ui/react"
-import '../pages/Home.scss'
+import {Container, Box} from "@chakra-ui/react"
+import styles from "../Styles/Home.module.scss"
 
 export default function Home(){
     return(
-        <div>
-            <Box color='black' className="frame tw-max-w-[500px]">
-                <navbar className="">
-                    <button>Home</button>
-                    <button>History</button>
-                    <button>Graphs</button>
-                    <button>+ Add New Task</button>
+        <Container maxW='2xl' centerContent>
+            <Box boxShadow='md' color='black' className={styles.frame} mt={"200px"} width="1000px" borderRadius="md">
+                <navbar className="frame tw-text-none">
+                    <a href="Home">Home</a>
+                    <a href="History">History</a>
+                    <a href="Graphs">Graphs</a>
+                    <a href="NewTask">+ Add New Task</a>
                 </navbar>
-                <div className="tw-w-[500px] tw-h-[800px]">
-
-                </div>
             </Box>
-        </div>
+            <Box className={styles.stage}color="white">
+                <p>hello</p>
+            </Box>
+        </Container>
     )
 }
