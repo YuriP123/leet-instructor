@@ -1,9 +1,11 @@
-#Leet Instructor
+# Leet Instructor
 An app used to keep track on your data structure skills, provides statistics based on your performance and gives you personalized feedback on what
 subjects to focus on
 
-#Tools Used
+# Tools Used
 React, Next.js, Chakra-ui, Sass
+
+---
 
 # Getting Started
 
