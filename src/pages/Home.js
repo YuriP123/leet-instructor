@@ -1,6 +1,7 @@
 import React from "react";
 import {Container, Box} from "@chakra-ui/react"
 import styles from "../Styles/Home.module.scss"
+import Healthbars from "./Components/Healthbars"
 
 export default function Home(){
     return(
@@ -14,7 +15,7 @@ export default function Home(){
                 </navbar>
             </Box>
             <Box className={styles.stage}color="white">
-                <p>hello</p>
+                {Healthbars}
             </Box>
         </Container>
     )
