@@ -4,16 +4,25 @@
     background-color: #424242;
     text-align: center;
     padding: 20px;
-        navbar { 
+        ul {
+            list-style: none;
             display: flex;
             flex-direction: row;
             margin: auto;
             flex-wrap: wrap;
             gap: 200px;
             justify-content: center;
-            a{
+            li{
+              :hover{
+                color: rgb(126, 228, 251);
+                transition: all 0.2s ease 0s;
+              }
+              a{
+                width: 100%;
                 color: white;
+              }
             }
+
     }   
   }
 
@@ -21,4 +30,4 @@
     background-color: #5b5b5b;
     height: 700px;
     width:1000px;
-  }
+}

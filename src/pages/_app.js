@@ -6,9 +6,8 @@ function App() {
   return (
     <ChakraProvider>
       <div className='screen'>
-        <Home backgroundColor='tomato'/>
+        <Home/>
       </div>
-
     </ChakraProvider>
   );
 }
