@@ -1,0 +1,18 @@
+.taskFrame{
+    display: flex;
+    align-items: center;
+    div{
+        h1{
+            position: relative;
+            width:182px;
+            top:10px;
+            margin-left: 60px;
+            background-color: aquamarine;
+            border-radius: 25px;
+            padding:10px;
+            text-align: center;
+            color: black;
+            font-weight: 700;
+        }
+    }   
+}
