@@ -21,6 +21,8 @@ function useLocalState(key){
 export default function TaskModal(){
     const [task,setTask] = useLocalState('task')
     const [color,setColor] = useLocalState('color')
+    const [sliderValue, setSliderValue] = useLocalState('slider')
+
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     function handleNameChange(event){
@@ -31,7 +33,6 @@ export default function TaskModal(){
     }
 
     return (
-      
       <div>
         <Button onClick={onOpen}>Add New Task</Button>
         <Modal isOpen={isOpen} onClose={onClose} >
@@ -42,8 +43,9 @@ export default function TaskModal(){
             <ModalBody>
               <Input placeholder="Task Name" mb="20px" value={task} onChange={handleNameChange}></Input>
               <h3>Difficulty</h3>
-              <SliderComponent/>
+              <SliderComponent onSliderChange={event=> setSliderValue(event)}/>
               <Box mt="50px" >
+                
                 <CirclePicker value={color} onChangeComplete={handleColorChange}/>
               </Box>
             </ModalBody>
@@ -58,21 +60,16 @@ export default function TaskModal(){
       </div>
     )
   }
-  function SliderComponent(){
-    const [sliderValue, setSliderValue] = useLocalState('slider',0)
+  function SliderComponent({onSliderChange}){
     const labelStyles = {
       mt: '2',
       fontSize: 'sm',
       pr: '2px'
     }
-
-    function handleChange(val){
-      setSliderValue(val)
-    }
   
     return (
       <Box>
-        <Slider aria-label='slider-ex-6' defaultValue={3} min={1} max={5} step={1} onChange={val => handleChange(val)}>
+        <Slider aria-label='slider-ex-6' defaultValue={3} min={1} max={5} step={1} onChange={onSliderChange}>
           <SliderMark value={1} {...labelStyles}>
             1
           </SliderMark>
