@@ -3,7 +3,7 @@ An app used to keep track on your data structure skills, provides statistics bas
 subjects to focus on
 
 # Tech utilized
-React, Next.js, Chakra-ui, Sass, Typescript
+React, Next.js, Chakra-ui, Sass, Typescript, React Color
 
 ---
 
