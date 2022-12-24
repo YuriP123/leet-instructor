@@ -5,12 +5,13 @@ import styles from "../../Styles/Healthbars.module.scss"
 import Healthbar from "./Healthbar"
 
 export default function Taskframe({data}){
-    const title = data.Task
+    const {Task,Difficulty,color} = data
+    console.log(color)
     const [health, setHealth] = useState(800)
     return(
         <Container className={styles.taskFrame} pt="50px">
             <div>
-                <h1>{title}</h1>
+                <h1 style={{backgroundColor: color}}>{Task}</h1> 
                 <Healthbar current={health}/>
             </div>
             <IconButton

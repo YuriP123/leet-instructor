@@ -17,7 +17,9 @@ export default function Home(){
                     <TaskModal setList={setDataList} list={dataList}/>
                 </Box>
                 <Box className={styles.stage}color="white">
-                    {taskList}
+                    <div className={styles.frameContainer}>
+                        {taskList}
+                    </div>
                 </Box>
         </Container>
     )
