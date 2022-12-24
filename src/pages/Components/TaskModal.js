@@ -18,7 +18,7 @@ function useLocalState(key){
 }
 
 
-export default function TaskModal(){
+export default function TaskModal({setList,list}){
     const [task,setTask] = useLocalState('task')
     const [color,setColor] = useLocalState('color')
     const [sliderValue, setSliderValue] = useLocalState('slider')
@@ -30,6 +30,18 @@ export default function TaskModal(){
     }
     function handleColorChange(color){
       setColor(color.hex)
+    }
+
+    function taskUpdate(){
+      setList([
+        ...list,
+        {
+          Task: task,
+          Difficulty: sliderValue,
+          color: color
+        }
+      ])
+      onClose()
     }
 
     return (
@@ -45,13 +57,12 @@ export default function TaskModal(){
               <h3>Difficulty</h3>
               <SliderComponent onSliderChange={event=> setSliderValue(event)}/>
               <Box mt="50px" >
-                
                 <CirclePicker value={color} onChangeComplete={handleColorChange}/>
               </Box>
             </ModalBody>
   
             <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onClose} >
+              <Button colorScheme='blue' mr={3} onClick={taskUpdate}>
                 Add Task
               </Button>
             </ModalFooter>

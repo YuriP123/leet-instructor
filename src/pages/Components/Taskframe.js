@@ -4,12 +4,13 @@ import {React, useState} from "react";
 import styles from "../../Styles/Healthbars.module.scss"
 import Healthbar from "./Healthbar"
 
-export default function Taskframe(){
+export default function Taskframe({data}){
+    const title = data.Task
     const [health, setHealth] = useState(800)
     return(
         <Container className={styles.taskFrame} pt="50px">
             <div>
-                <h1>Title</h1>
+                <h1>{title}</h1>
                 <Healthbar current={health}/>
             </div>
             <IconButton
