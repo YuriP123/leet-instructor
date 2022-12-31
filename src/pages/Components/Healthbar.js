@@ -5,7 +5,6 @@ export default function Healthbars({current}){
     const currentHp = current;
 
     const percent = currentHp/fullWidth * 77 ;
-    console.log(percent)
 
     return(
         <svg xmlns="http://www.w3.org/2000/svg" width={44*9} viewBox="0 -0.5 1045 217" shape-rendering="crispEdges">
