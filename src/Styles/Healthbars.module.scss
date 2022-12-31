@@ -7,7 +7,6 @@
             width:182px;
             top:10px;
             margin-left: 60px;
-            background-color: aquamarine;
             border-radius: 25px;
             padding:10px;
             text-align: center;
@@ -15,4 +14,14 @@
             font-weight: 700;
         }
     }   
+}
+
+.searchResults{
+    width: 366px;
+    display: flex;
+    border-radius: 0px;
+    flex-direction: column;
+    button{
+        width: 100%;
+    }
 }
