@@ -1,6 +1,6 @@
-import { Select,Container, IconButton, Box,Button,Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure,Input, Slider, SliderTrack,SliderFilledTrack,SliderThumb,SliderMark,} from "@chakra-ui/react";
-import { AddIcon } from '@chakra-ui/icons'
-import React , {useState} from "react";
+import { Select,Container, IconButton, Box,Button,Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton, useDisclosure,Input, Slider, SliderTrack,SliderFilledTrack,SliderThumb,SliderMark, Badge,} from "@chakra-ui/react";
+import { AddIcon, DeleteIcon } from '@chakra-ui/icons'
+import React , {useEffect, useState} from "react";
 import styles from "../../Styles/Healthbars.module.scss"
 import Healthbar from "./Healthbar"
 
@@ -58,8 +58,6 @@ function SearchbarComponent(){
     const [search, setSearch] = useState('')
     const [filterArray, setFilterArray] = useState([])
     const [relatedArray, setRelatedArray] = useState([])
-    console.log(relatedArray)
-
     const topicArray = ['Arrays & Hashing','Two Pointers', 'Stack', 'Binary Search', 'Sliding Window', 'Linked List', 'Trees',
         'Tries', 'Backtracking', 'Heap / Priority Queue', 'Graphs', '1-D PP', 'Intervals', 'Greedy']
 
@@ -72,18 +70,23 @@ function SearchbarComponent(){
         setFilterArray(newArray)
     }
 
+    function handleBadgeDelete(Topic){
+      const newArray = relatedArray.filter(e => e !== Topic)
+      setRelatedArray(newArray)
+
+    }
+    
     function handleTopicChange(Topic){
         setSearch('')
         setRelatedArray((prev)=>[
             ...prev,
-             Topic
+            Topic
         ])
-        relatedArray.map(selectedTopic => {
-            return(
-                <button>{selectedTopic}</button>
-            )
-        })
     }
+
+      const topicButtons = relatedArray.map((Topic)=>
+          <Badge mr="10px">{Topic}<button><DeleteIcon onClick={()=>{handleBadgeDelete(Topic)}}/></button></Badge>
+      )
 
     const buttonArray = filterArray.map((Topic) =>
         <Button key={Topic} onClick={()=>handleTopicChange(Topic)}>    
@@ -94,6 +97,9 @@ function SearchbarComponent(){
     return(
         <Container w="366">
             <Input mt="30px"placeholder="Related Tasks" value={search} onChange={handleSearchChange}></Input>
+              <box>
+                {topicButtons}
+              </box>
             <box className={styles.searchResults}>
                 {search.length !== 0 && buttonArray} 
             </box>
